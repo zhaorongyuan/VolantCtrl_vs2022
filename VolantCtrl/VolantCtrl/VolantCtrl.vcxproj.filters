@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\UI">
+      <UniqueIdentifier>{c3fe1913-3136-44c8-afcf-7ec9f388164c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UI\imgui">
+      <UniqueIdentifier>{170c4ab9-957d-450a-a44c-b720597854a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UI\imgui\misc">
+      <UniqueIdentifier>{b4c82769-35d4-442f-9db9-d5decc1f54d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UI\imgui\backends">
+      <UniqueIdentifier>{925659e1-7175-4d2f-8694-89eb83f09fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\main">
+      <UniqueIdentifier>{a8eefb8a-8966-4685-9d99-dd9e0d6c6e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UI\imgui\dx11_base">
+      <UniqueIdentifier>{91fe4b3f-1e33-4120-a336-07c69aa3d6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UI\imgui\app_ui">
+      <UniqueIdentifier>{dc0663de-c82f-4ae4-958c-d3c2901dd48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\API">
+      <UniqueIdentifier>{1d387638-e124-48d7-b76d-2ce9fcaaa032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\API\ZXDocAPI">
+      <UniqueIdentifier>{46e09364-e788-4b0d-afb6-b33a7f0b40d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\UI\imgui\imconfig.h">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\imgui.h">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\imgui_internal.h">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\imstb_rectpack.h">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\imstb_textedit.h">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\backends\imgui_impl_dx11.h">
+      <Filter>源文件\UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\backends\imgui_impl_win32.h">
+      <Filter>源文件\UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\main\main.h">
+      <Filter>源文件\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\app_ui\app_ui.h">
+      <Filter>源文件\UI\imgui\app_ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\dx11_base\DX11_Base.h">
+      <Filter>源文件\UI\imgui\dx11_base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\UI\imgui\app_ui\Font.h">
+      <Filter>源文件\UI\imgui\app_ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\API\ZXDocApi\c\include\ZXDocComm\ZXDocComm.h">
+      <Filter>源文件\API\ZXDocAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\API\ZXDocApi\c\include\ZXDocComm\ZXDocCommon.h">
+      <Filter>源文件\API\ZXDocAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\API\ZXDocApi\ZXDocClient\ZXDocClient.h">
+      <Filter>源文件\API\ZXDocAPI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\UI\imgui\imgui.cpp">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\imgui_demo.cpp">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\imgui_draw.cpp">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\imgui_tables.cpp">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\imgui_widgets.cpp">
+      <Filter>源文件\UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\backends\imgui_impl_dx11.cpp">
+      <Filter>源文件\UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\backends\imgui_impl_win32.cpp">
+      <Filter>源文件\UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\main\main.cpp">
+      <Filter>源文件\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\app_ui\app_ui.cpp">
+      <Filter>源文件\UI\imgui\app_ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\UI\imgui\dx11_base\DX11_Base.cpp">
+      <Filter>源文件\UI\imgui\dx11_base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\API\ZXDocApi\ZXDocClient\ZXDocClient.cpp">
+      <Filter>源文件\API\ZXDocAPI</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
