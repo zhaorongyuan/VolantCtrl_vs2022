@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# 忽略所有 x64 文件夹
+[Xx]64/
+
+# 但不要忽略这个特定的 DLL 路径
+!/API/zxdoc_api/c/lib/x64/ZXDocComm.dll
+!/API/zxdoc_api/c/lib/x64/ZXDocComm.lib
+
