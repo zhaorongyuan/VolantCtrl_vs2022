@@ -363,9 +363,9 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # 忽略所有 x64 文件夹
-[Xx]64/
+# [Xx]64/
 
 # 但不要忽略这个特定的 DLL 路径
-!/API/zxdoc_api/c/lib/x64/ZXDocComm.dll
-!/API/zxdoc_api/c/lib/x64/ZXDocComm.lib
-
+# 显式包含 API 中的核心库文件（注意路径大小写与物理路径一致）
+!API/ZXDocApi/c/lib/x64/ZXDocComm.dll
+!API/ZXDocApi/c/lib/x64/ZXDocComm.lib
