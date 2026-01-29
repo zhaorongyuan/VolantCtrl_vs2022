@@ -367,5 +367,8 @@ FodyWeavers.xsd
 
 # 但不要忽略这个特定的 DLL 路径
 # 显式包含 API 中的核心库文件（注意路径大小写与物理路径一致）
-!API/ZXDocApi/c/lib/x64/ZXDocComm.dll
-!API/ZXDocApi/c/lib/x64/ZXDocComm.lib
+# !API/ZXDocApi/c/lib/x64/ZXDocComm.dll
+# !API/ZXDocApi/c/lib/x64/ZXDocComm.lib
+
+!\x64\Debug\ZXDocComm.dll
+!\x64\Release\ZXDocComm.dll
