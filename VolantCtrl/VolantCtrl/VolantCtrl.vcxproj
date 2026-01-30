@@ -23,6 +23,9 @@
     <ClInclude Include="..\..\API\ZXDocApi\c\include\ZXDocComm\ZXDocCommon.h" />
     <ClInclude Include="..\..\API\ZXDocApi\ZXDocClient\ZXDocClient.h" />
     <ClInclude Include="..\..\main\main.h" />
+    <ClInclude Include="..\..\Service\CRC\VolantCRC\ARINC825.h" />
+    <ClInclude Include="..\..\Service\CRC\VolantCRC\Platform_Types.h" />
+    <ClInclude Include="..\..\Service\Protocol\Protocal_Volant_Types.h" />
     <ClInclude Include="..\..\UI\imgui\app_ui\app_ui.h" />
     <ClInclude Include="..\..\UI\imgui\app_ui\Font.h" />
     <ClInclude Include="..\..\UI\imgui\backends\imgui_impl_dx11.h" />
@@ -37,6 +40,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\API\ZXDocApi\ZXDocClient\ZXDocClient.cpp" />
     <ClCompile Include="..\..\main\main.cpp" />
+    <ClCompile Include="..\..\Service\CRC\VolantCRC\ARINC825.c" />
+    <ClCompile Include="..\..\Service\Protocol\Protocal_Volant_Types.c" />
     <ClCompile Include="..\..\UI\imgui\app_ui\app_ui.cpp" />
     <ClCompile Include="..\..\UI\imgui\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="..\..\UI\imgui\backends\imgui_impl_win32.cpp" />
@@ -131,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\API\ZXDocApi\c\include\ZXDocComm;..\..\API\ZXDocApi\ZXDocClient;..\..\UI\imgui\dx11_base;..\..\UI\imgui\app_ui;..\..\UI\imgui\backends;..\..\UI\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Service\CRC\VolantCRC;..\..\Service\Protocol;..\..\API\ZXDocApi\c\include\ZXDocComm;..\..\API\ZXDocApi\ZXDocClient;..\..\UI\imgui\dx11_base;..\..\UI\imgui\app_ui;..\..\UI\imgui\backends;..\..\UI\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -147,7 +152,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\API\ZXDocApi\c\include\ZXDocComm;..\..\API\ZXDocApi\ZXDocClient;..\..\UI\imgui\dx11_base;..\..\UI\imgui\app_ui;..\..\UI\imgui\backends;..\..\UI\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Service\CRC\VolantCRC;..\..\Service\Protocol;..\..\API\ZXDocApi\c\include\ZXDocComm;..\..\API\ZXDocApi\ZXDocClient;..\..\UI\imgui\dx11_base;..\..\UI\imgui\app_ui;..\..\UI\imgui\backends;..\..\UI\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>

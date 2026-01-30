@@ -1,13 +1,23 @@
-#include "DX11_Base.h"
-#include "App_UI.h"
 #include <iostream>
 #include <thread>
 #include <iomanip>
 #include <vector>
 #include <chrono>
 #include <atomic>
-#include "ZXDocClient.h"
 #include <windows.h> 
+#include<thread>
+
+#include "Protocal_Volant_Types.h"
+#include "ZXDocClient.h"
+#include "DX11_Base.h"
+#include "App_UI.h"
+
+struct
+{
+    MotorControlParams data_early;
+    CANFD_EXT_RX1_OBJ data_late;
+
+}VLT_CRRL;
 
 /**
  * @file main.cpp
@@ -57,10 +67,9 @@ extern ImVec4* GetClearColor();
  * 7. 运行主循环
  * 8. 清理资源
  */
-int test();
 int main(int, char**)
 {
-    test();
+    
     // 1. 初始化 DPI awareness
     ImGui_ImplWin32_EnableDpiAwareness();
     float main_scale = ImGui_ImplWin32_GetDpiScaleForMonitor(::MonitorFromPoint(POINT{ 0, 0 }, MONITOR_DEFAULTTOPRIMARY));
@@ -108,6 +117,11 @@ int main(int, char**)
 
     // 6. 初始化用户应用 (App_UI)
     App_Init();
+
+
+    // 创建t1线程，传入函数 thread_1 和参数 1
+    std::thread thread_volantctrl_send(volantctrl_send);
+    thread_volantctrl_send.join();
 
     // 7. 主循环
     bool done = false;
@@ -180,8 +194,10 @@ int main(int, char**)
     return 0;
 }
 
-int test()
+
+int volantctrl_send()
 {
+    
     ZXDocClient client;
 
     // 1. 连接
@@ -198,79 +214,13 @@ int test()
     std::cout << "2. Starting Measurement..." << std::endl;
     if (!client.Start()) return -1;
 
-    // ==========================================
-    // 4. 批量极速测试配置
-    // ==========================================
-    const int TOTAL_FRAMES = 50000;  // 总帧数 (加量到5万)
-    const int BATCH_SIZE = 50;       // 每批 50 帧 (打包发送)
-    const int CHANNEL = 1;
-    const bool TEST_IS_FD = true;
+    // 4.线程锁里获取数据
 
-    std::cout << "------------------------------------------------" << std::endl;
-    std::cout << "3. BATCH SPEED TEST (Target: " << TOTAL_FRAMES << ")" << std::endl;
-    std::cout << "   Batch Size: " << BATCH_SIZE << std::endl;
-    std::cout << "------------------------------------------------" << std::endl;
-
-    // 预先构造一批数据 (避免在循环里重复分配内存，进一步提速)
-    std::vector<uint8_t> singlePayload(64, 0xAA);
-    std::vector<std::vector<uint8_t>> batchPayloads(BATCH_SIZE, singlePayload);
-
-    // 给这批数据打上标记
-    for (int k = 0; k < BATCH_SIZE; ++k) {
-        batchPayloads[k][0] = (uint8_t)k; // 第一个字节区分
-    }
-
-    auto start_time = std::chrono::high_resolution_clock::now();
-    int sent_batches = 0;
-
-    int loops = TOTAL_FRAMES / BATCH_SIZE;
-
-    // --- 极速循环 ---
-    for (int i = 0; i < loops; ++i) {
-        // 调用我们新写的批量接口
-        // ID 使用 0x100 (标准帧范围), isFd=true, isExtended=false
-        if (client.SendCanMessagesBatch(CHANNEL, 0x12345, batchPayloads, TEST_IS_FD, true)) {
-            sent_batches++;
-        }
-        else {
-            // 如果缓冲区满，稍微让出一点时间
-            std::this_thread::yield();
-        }
-
-        // 批量模式下通常不需要 sleep，除非硬件真的顶不住
-        // if (i % 20 == 0) std::this_thread::sleep_for(std::chrono::milliseconds(1));
-    }
-
-    auto end_time_tx = std::chrono::high_resolution_clock::now();
-
-    // 5. 等待接收
-    std::cout << "4. Tx Loop Done. Waiting 5 seconds..." << std::endl;
-    for (int k = 0; k < 50; ++k) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        if (k % 10 == 0) std::cout << "   Rx: " << rx_count.load() << std::endl;
-    }
+    //client.SendCanMessagesBatch(CHANNEL, 0x12345, batchPayloads, TEST_IS_FD, true);
 
     client.Stop();
 
-    // ==========================================
-    // 6. 结果计算
-    // ==========================================
-    double duration_sec = std::chrono::duration<double>(end_time_tx - start_time).count();
-    int tx_success = sent_batches * BATCH_SIZE;
-    double fps = tx_success / duration_sec;
-    double mbps = (tx_success * 64.0 * 8.0) / (1000000.0 * duration_sec);
-
-    std::cout << "\n================ RESULT ================" << std::endl;
-    std::cout << "Time (Tx Loop)   : " << std::fixed << std::setprecision(3) << duration_sec << " s" << std::endl;
-    std::cout << "Total Sent       : " << tx_success << std::endl;
-    std::cout << "Total Received   : " << rx_count.load() << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << "Tx Speed (FPS)   : " << std::fixed << std::setprecision(2) << fps << " Frames/sec" << std::endl;
-    std::cout << "Payload Tput     : " << std::fixed << std::setprecision(2) << mbps << " Mbps" << std::endl;
-    std::cout << "========================================" << std::endl;
-
-    std::cin.get();
-    return 0;
 }
+
 
 

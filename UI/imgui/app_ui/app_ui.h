@@ -11,12 +11,12 @@
 
 struct MotorControlParams {
     int motor_id_idx = 0;           // 电机编号索引 (0-10, 对应 ID 1-11)
-    bool motor_id_enabled = true;   // ID 勾选框
     int ctrl_source_idx = 0;        // 控制源
     int machine_hv_idx = 0;         // 整机高压
     int hv_state_idx = 0;           // 高压状态
     int work_mode_idx = 0;          // 工作模式
     int speed_rpm = 0;              // 转速
+    bool motor_id_enabled = true;   // 主通道
     bool crc_switch = true;         // CRC开关
     bool heartbeat_switch = true;   // 心跳开关
     bool is_sending = false;        // 发送开关

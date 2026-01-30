@@ -40,6 +40,18 @@
     <Filter Include="源文件\API\ZXDocAPI">
       <UniqueIdentifier>{46e09364-e788-4b0d-afb6-b33a7f0b40d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Service">
+      <UniqueIdentifier>{b3cb7728-a2af-47ef-b38a-48f8616b5466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Service\volant">
+      <UniqueIdentifier>{f84e0e32-865c-41dc-b8f0-b176d05a11be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Service\volant\CRC">
+      <UniqueIdentifier>{c9945b12-21a7-416a-8eda-9c48c74ea4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Service\volant\Protocol">
+      <UniqueIdentifier>{c35b3084-a0bc-4e25-8c23-cc332f7713f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\UI\imgui\imconfig.h">
@@ -84,6 +96,15 @@
     <ClInclude Include="..\..\API\ZXDocApi\ZXDocClient\ZXDocClient.h">
       <Filter>源文件\API\ZXDocAPI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Service\CRC\VolantCRC\ARINC825.h">
+      <Filter>源文件\Service\volant\CRC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Service\Protocol\Protocal_Volant_Types.h">
+      <Filter>源文件\Service\volant\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Service\CRC\VolantCRC\Platform_Types.h">
+      <Filter>源文件\Service\volant\CRC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\UI\imgui\imgui.cpp">
@@ -118,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="..\..\API\ZXDocApi\ZXDocClient\ZXDocClient.cpp">
       <Filter>源文件\API\ZXDocAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Service\CRC\VolantCRC\ARINC825.c">
+      <Filter>源文件\Service\volant\CRC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Service\Protocol\Protocal_Volant_Types.c">
+      <Filter>源文件\Service\volant\Protocol</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
